@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Мои обращения</title>
+</head>
+<body>
+ <a href="#main-content">Перейти к основному содержимому</a>
+ <header>
+ <p><strong>Help Desk</strong></p>
+ </header>
+ <nav aria-label="Основная навигация">
+ <ul>
+ <li><a href="index.html">Обращения</a></li>
+ <li><a href="create-ticket.html">Создать обращение</a></li>
+ </ul>
+ </nav>
+ <main id="main-content">
+
+<h1>Мои обращения</h1>
+Не нашли нужное? <a href="create-ticket.html">Создать новое обращение</a>
+
+<section aria-labelledby="open-tickets-heading">
+    <h2 id="open-tickets-heading">Открытые обращения</h2>
+  
+    <button type="button"
+            id="filter-toggle"
+            aria-expanded="false"
+            aria-controls="filters">Показать фильтры</button>
+
+    <div id="filters" hidden>
+        <label for="status-filter">Статус</label>
+        <select id="status-filter">
+            <option value="all">Все</option>
+            <option value="new">Новые</option>
+            <option value="progress">В работе</option>
+            <option value="waiting">Ожидают ответа</option>
+        </select>
+    </div>
+
+        <article>
+        <h3>Не открывается личный кабинет</h3>
+        <p><strong>Статус:</strong> В работе</p>
+        <p>После входа отображается пустая страница.</p>
+
+        <table>
+            <caption>История статусов обращения №101</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Комментарий</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">21.09.2026</th>
+                    <td>Новое</td>
+                    <td>Обращение создано</td>
+                </tr>
+                <tr>
+                    <th scope="row">21.09.2026</th>
+                    <td>В работе</td>
+                    <td>Оператор взял обращение</td>
+                </tr>
+                <tr>
+                    <th scope="row">22.09.2026</th>
+                    <td>Ожидает ответа</td>
+                    <td>Запрошен скриншот ошибки</td>
+                </tr>
+                <tr>
+                    <th scope="row">23.09.2026</th>
+                    <td>В работе</td>
+                    <td>Скриншот получен, ошибка передана разработчикам</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="ticket-101.html">Открыть обращение №101</a>
+    </article>
+
+    <article>
+        <h3>Не загружается страница</h3>
+        <p><strong>Статус:</strong> Ожидает ответа</p>
+        <p>Ошибка 404.</p>
+        <a href="ticket-102.html">Открыть обращение №102</a>
+    </article>
+
+    <article>
+        <h3>Не приходит письмо для сброса пароля</h3>
+        <p><strong>Статус:</strong> Новое</p>
+        <p>Письма на почте нет, ни в папке Спам, ни в Корзине.</p>
+        <a href="ticket-103.html">Открыть обращение №103</a>
+    </article>
+
+</section>
+
+<section aria-labelledby="lifecycle-heading">
+    <h2 id="lifecycle-heading">Как обрабатывается обращение</h2>
+
+    <figure>
+        <img src="assets/images/CilkZayvka.drawio.svg" alt="Схема этапов обращения: новое, в работе, ожидает ответа, решено">
+        <figcaption>Жизненный цикл обращения Help Desk.</figcaption>
+    </figure>
+
+    <p>Обращение проходит четыре этапа.</p>
+    Новое - обращение создано и ждёт оператора.
+    В работе - оператор разбирается в проблеме.
+    Ожидает ответа - оператору нужны уточнения от пользователя. Решено - проблема устранена, обращение закрыто.
+</section>
+
+<section aria-labelledby="help-heading">
+    <h2 id="help-heading">Справка</h2>
+    <p>Перед созданием нового обращения проверьте, нет ли похожего в списке.</p>
+</section>
+
+ </main>
+ <footer>
+ <p>Учебный проект Help Desk</p>
+ </footer>
+
+  <script>
+    const button = document.querySelector('#filter-toggle');
+    const filters = document.querySelector('#filters');
+
+    button.addEventListener('click', () => {
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isOpen));
+        filters.hidden = isOpen;
+        button.textContent = isOpen ? 'Показать фильтры' : 'Скрыть фильтры';
+    });
+ </script>
+ 
+</body>
+</html>
