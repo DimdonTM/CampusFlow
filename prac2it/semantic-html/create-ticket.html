@@ -40,6 +40,25 @@
         type="email" autocomplete="email" required>
  </div>
 
+  <fieldset>
+    <legend>Предпочтительный способ связи</legend>
+
+    <label><input type="radio" name="contactMethod" value="email" checked> Email</label>
+    <label><input type="radio" name="contactMethod" value="phone"> Телефон</label>
+    <label><input type="radio" name="contactMethod" value="messenger"> Мессенджер</label>
+
+   <div>
+       <label for="phone">Номер телефона (необязательно)</label>
+       <input id="phone" name="phone" type="tel" autocomplete="tel" aria-describedby="phone-hint">
+       <p id="phone-hint">Формат: +7 999 123-45-67. Заполните, если выбрали способ связи "Телефон".</p>
+    </div>
+
+    <div>
+       <label for="messenger">Ник в Telegram (необязательно)</label>
+       <input id="messenger" name="messenger" type="text">
+    </div>
+ </fieldset>
+
  <div>
     <label for="title">Тема обращения</label>
     <input id="title" name="title" type="text" required>
