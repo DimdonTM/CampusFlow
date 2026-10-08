@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Стресс-тест — каталог мероприятий</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark" aria-hidden="true">CF</span>
+        CampusFlow
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a class="nav__link nav__link--active" href="index.html" aria-current="page">Каталог</a></li>
+          <li><a class="nav__link" href="#">Мои события</a></li>
+          <li><a class="nav__link" href="#">Профиль</a></li>
+        </ul>
+      </nav>
+
+      <form class="header__search" action="#" role="search">
+        <input type="search" name="q" placeholder="Поиск" aria-label="Поиск по сайту">
+      </form>
+
+      <a class="avatar" href="#" aria-label="Мой профиль">AV</a>
+    </div>
+  </header>
+
+  <main class="container main" id="main">
+    <h1 class="page-title">Учебные мероприятия</h1>
+    <p class="page-subtitle">Найдите лекцию, мастер-класс или встречу по интересам.</p>
+
+    <form class="toolbar" action="#" aria-label="Поиск мероприятий">
+      <input class="toolbar__search" type="search" name="q"
+             placeholder="Поиск по названию или теме..." aria-label="Поиск по названию или теме">
+      <div class="toolbar__actions">
+        <select class="toolbar__sort" name="sort" aria-label="Сортировка">
+          <option value="new">Сначала новые</option>
+          <option value="old">Сначала старые</option>
+        </select>
+        <button class="button" type="reset">Сбросить</button>
+      </div>
+    </form>
+
+    <div class="filters">
+      <span class="filters__title" id="filters-title">Фильтры</span>
+      <div class="chips" role="group" aria-labelledby="filters-title">
+        <button class="chip chip--active" type="button" aria-pressed="true">Все</button>
+        <button class="chip" type="button" aria-pressed="false">Frontend</button>
+        <button class="chip" type="button" aria-pressed="false">Backend</button>
+        <button class="chip" type="button" aria-pressed="false">UX/UI</button>
+        <button class="chip" type="button" aria-pressed="false">Карьера и soft skills для начинающих</button>
+      </div>
+      <p class="filters__count">24 события</p>
+    </div>
+
+    <div class="layout">
+      <section class="cards" aria-label="Мероприятия">
+        <article class="card">
+          <div class="card__cover">
+            <img class="card__icon" src="img/event.svg" alt="">
+            <button class="card__fav" type="button" aria-pressed="false" aria-label="В избранное">♡</button>
+          </div>
+          <p class="card__tag">Frontend</p>
+          <!-- Тест 1: длинный заголовок -->
+          <h2 class="card__title"><a href="#">Семантический HTML без лишних div: landmark-области, заголовки, доступные формы и разбор реального макета на живом примере</a></h2>
+          <p class="card__meta"><time datetime="2026-09-18T16:00">18 сен · 16:00</time> · ауд. 304</p>
+          <p class="card__seats">18 мест</p>
+        </article>
+
+        <article class="card">
+          <div class="card__cover">
+            <img class="card__icon" src="img/event.svg" alt="">
+            <button class="card__fav card__fav--active" type="button" aria-pressed="true" aria-label="В избранное">♥</button>
+          </div>
+          <p class="card__tag">Инструменты</p>
+          <h2 class="card__title"><a href="#">Git без страха</a></h2>
+          <p class="card__meta"><!-- Тест 2: длинное название организации --><time datetime="2026-09-19T14:30">19 сен · 14:30</time> · Кафедра Информационно-измерительных систем Московского государственного университета геодезии и картографии</p>
+          <p class="card__seats">8 мест</p>
+        </article>
+
+        <article class="card">
+          <div class="card__cover">
+            <img class="card__icon" src="img/event.svg" alt="">
+            <button class="card__fav" type="button" aria-pressed="false" aria-label="В избранное">♡</button>
+          </div>
+          <p class="card__tag">UX/UI</p>
+          <!-- Тест 3: длинная строка без пробелов (URL) -->
+          <h2 class="card__title"><a href="#">https://campusflow.example.edu/events/2026/ux-razbor-interfeysov?utm_source=catalog&amp;utm_medium=card</a></h2>
+          <p class="card__meta"><time datetime="2026-09-21T17:00">21 сен · 17:00</time> · коворкинг</p>
+          <p class="card__seats">5 мест</p>
+        </article>
+
+        <article class="card">
+          <div class="card__cover">
+            <img class="card__icon" src="img/event.svg" alt="">
+            <button class="card__fav" type="button" aria-pressed="false" aria-label="В избранное">♡</button>
+          </div>
+          <!-- Доп. тест: пустые значения -->
+          <p class="card__tag"></p>
+          <h2 class="card__title"><a href="#">REST API на практике</a></h2>
+          <p class="card__meta"><time datetime="2026-09-23T15:00">23 сен · 15:00</time> · ауд. 211</p>
+          <p class="card__seats"></p>
+        </article>
+
+        <article class="card">
+          <div class="card__cover">
+            <img class="card__icon" src="img/event.svg" alt="">
+            <button class="card__fav" type="button" aria-pressed="false" aria-label="В избранное">♡</button>
+          </div>
+          <!-- Второй вариант: длинная категория -->
+          <p class="card__tag">Инструменты разработки и автоматизации</p>
+          <h2 class="card__title"><a href="#">Портфолио разработчика</a></h2>
+          <p class="card__meta"><time datetime="2026-09-25T18:00">25 сен · 18:00</time> · online</p>
+          <p class="card__seats">32 места</p>
+        </article>
+
+        <article class="card">
+          <div class="card__cover">
+            <img class="card__icon" src="img/event.svg" alt="">
+            <button class="card__fav card__fav--active" type="button" aria-pressed="true" aria-label="В избранное">♥</button>
+          </div>
+          <p class="card__tag">Frontend</p>
+          <h2 class="card__title"><a href="#">Доступность в вебе</a></h2>
+          <p class="card__meta"><!-- Тест 2б: длинное ФИО --><time datetime="2026-09-27T13:00">27 сен · 13:00</time> · ведёт Игнаетьев Константин Юрьевич-Измайлов</p>
+          <p class="card__seats">10 мест</p>
+        </article>
+      </section>
+
+      <aside class="sidebar" aria-labelledby="sidebar-title">
+        <h2 class="sidebar__title" id="sidebar-title">Мои фильтры</h2>
+        <form class="sidebar__form" action="#">
+          <label class="sidebar__label" for="date">Дата</label>
+          <select class="sidebar__select" id="date" name="date">
+            <option value="week">На этой неделе</option>
+            <option value="month">В этом месяце</option>
+            <option value="any">Любая дата</option>
+          </select>
+
+          <fieldset class="sidebar__group">
+            <legend class="sidebar__label">Формат</legend>
+            <label class="sidebar__option"><input type="checkbox" name="format" value="offline" checked> Очно</label>
+            <label class="sidebar__option"><input type="checkbox" name="format" value="online"> Онлайн</label>
+          </fieldset>
+
+          <fieldset class="sidebar__group sidebar__group--level">
+            <legend class="sidebar__label">Уровень</legend>
+            <label class="sidebar__option"><input type="radio" name="level" value="all" checked> Для всех</label>
+            <label class="sidebar__option"><input type="radio" name="level" value="beginner"> Начальный</label>
+            <label class="sidebar__option"><input type="radio" name="level" value="advanced"> Продвинутый</label>
+          </fieldset>
+
+          <button class="button button--primary" type="submit">Применить</button>
+        </form>
+      </aside>
+    </div>
+
+    <nav class="pagination" aria-label="Страницы каталога">
+      <a class="pagination__item" href="#" aria-label="Предыдущая страница">‹</a>
+      <a class="pagination__item pagination__item--current" href="#" aria-current="page">1</a>
+      <a class="pagination__item" href="#">2</a>
+      <a class="pagination__item" href="#">3</a>
+      <span class="pagination__item">…</span>
+      <a class="pagination__item" href="#">8</a>
+      <a class="pagination__item" href="#" aria-label="Следующая страница">›</a>
+    </nav>
+  </main>
+</body>
+</html>
