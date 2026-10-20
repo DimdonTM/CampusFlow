@@ -1,0 +1,487 @@
+/* ПРАКТИЧЕСКАЯ РАБОТА № 4 — стартовый файл CSS */
+/* Изображения и семантическая HTML-разметка уже подготовлены. */
+/* НЕ копируйте готовые стили: восстановите макет по PNG-референсам. */
+
+/* Шаг 1. Переменные, reset, типографика и контейнер */
+
+:root {
+  --gap: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: min(100% - 72px, 1400px);
+  margin-inline: auto;
+}
+
+/* Шаг 2. Шапка и hero: Flexbox / Grid */
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 56px;
+  min-height: 80px;
+}
+
+.brand { font-size: 20px; font-weight: 700; color: #000; text-decoration: none; letter-spacing: -0.5px; }
+.brand-icon { font-size: 34px; vertical-align: middle; }
+.brand-light { color: #66758a; }
+
+nav { display: flex; gap: 36px; }
+nav a { font-size: 14px; font-weight: 700; color: #536078; text-decoration: none; }
+.nav-active { color: #000; }
+
+.header-note { margin-left: auto; font-size: 12px; color: #8090a4; }
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  padding-top: 67px;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.hero h1 {
+  margin: 22px 0 17px;
+  font-size: clamp(36px, 4vw - 2px, 56px);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.hero-stat {
+  flex-shrink: 0;
+  width: 228px;
+  margin-bottom: 5px;
+  padding-left: 26px;
+  border-left: 1px solid #d5dbea;
+}
+
+.hero-stat strong {
+  display: block;
+  font-size: 54px;
+  line-height: 1;
+}
+
+.hero-stat span {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Шаг 3. Основная двухколоночная сетка: фильтры + каталог */
+
+.content-layout {
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 60px;
+}
+
+.filters {
+  padding: 20px 24px;
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.sidebar-title h2 { margin: 0; font-size: 18px; }
+.sidebar-title span { font-size: 20px; }
+
+.filters fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 0 54px;
+  padding: 0;
+  border: 0;
+}
+
+.filters legend {
+  margin-bottom: 17px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.filters label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #526078;
+}
+
+.filters input { width: 15px; height: 15px; margin: 0; }
+
+.filters em {
+  margin-left: auto;
+  font-style: normal;
+  color: #9aa5b6;
+}
+
+.reset {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccd5f9;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.aside-tip {
+  margin-top: 21px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f0f3ff;
+  color: #5f6fa3;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.aside-tip span { font-size: 18px; color: #6979a9; }
+.aside-tip p { margin: 8px 0 0; }
+
+/* Шаг 4. CSS Grid карточек: minmax(), auto-fit() или медиазапросы */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 11px 0 0;
+  font-size: 28px;
+}
+
+.count {
+  font-weight: 400;
+  color: #9aa5b5;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 12px;
+}
+
+.sort select {
+  width: 125px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--gap);
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 26px;
+  font-size: 11px;
+}
+
+.pagination button {
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+}
+
+/* Шаг 5. Внутренний Flexbox карточки и выравнивание кнопок */
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 18px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  padding: 7px 8px;
+  border-radius: 4px;
+  background: #eef1fe;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.level { font-size: 10px; color: #909aab; }
+
+.project-card h3 { margin: 18px 0 10px; font-size: 18px; }
+.project-description { margin: 0; font-size: 12px; }
+.tech { margin: 34px 0 0; font-size: 11px; color: #7a88a1; }
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 40px;
+  font-size: 10px;
+  color: #8693a7;
+}
+
+.card-link {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding: 10px 13px;
+  border: 1px solid #dbe2f3;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Шаг 6. Сложный блок .feature со сменой композиции */
+
+.feature {
+  container-type: inline-size;
+  margin-top: 79px;
+  padding: 30px;
+  border-radius: 16px;
+  background: #17274d;
+  color: #fff;
+}
+
+.feature-inner {
+  display: grid;
+  gap: 30px;
+}
+
+.feature-copy {
+  padding: 8px;
+}
+
+@container (min-width: 720px) {
+  .feature-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  .feature-copy {
+    padding: 20px;
+  }
+}
+
+.feature .eyebrow { color: #a8b9ff; }
+
+.feature h2 {
+  margin: 24px 0 15px;
+  font-size: clamp(28px, 2vw + 11px, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.feature-copy p {
+  max-width: 440px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #c4cee1;
+}
+
+.feature-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 27px;
+}
+
+.feature-actions a { font-size: 12px; font-weight: 700; text-decoration: none; }
+
+.primary {
+  display: flex;
+  gap: 26px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #e9efff;
+  color: #2544b8;
+}
+
+.secondary { color: #fff; }
+
+.feature-panel {
+  padding: 30px 28px;
+  border: 1px solid #46608f;
+  border-radius: 12px;
+  background: #243965;
+}
+
+.mini-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #aebee1;
+}
+
+.viewport-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 24px 0 20px;
+}
+
+.viewport-bars span {
+  width: var(--w);
+  min-width: 54px;
+  padding: 7px 8px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #5f84e8, #9cb2f8);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.feature-panel p { margin: 0; font-size: 11px; color: #adc0e5; }
+
+footer {
+  margin-top: 80px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0;
+  font-size: 12px;
+  color: #8893a3;
+}
+
+.footer-inner strong {
+  font-size: 17px;
+}
+
+/* Шаг 7. Адаптация 320 / 375 / 768 / 1024 / 1440 / 1920 */
+
+/* Планшет (768): фильтры уходят наверх */
+@media (max-width: 900px) {
+  .container { width: calc(100% - 40px); }
+
+  .header-note { display: none; }
+  nav { margin-left: auto; }
+
+  .hero { padding-top: 47px; }
+
+  .content-layout { grid-template-columns: 1fr; margin-top: 42px; }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: 18px;
+    padding: 18px 18px 38px;
+  }
+  .sidebar-title { width: 100%; }
+  .filters fieldset { margin-bottom: 0; }
+  .reset { width: auto; padding: 13px 20px; }
+  .aside-tip { display: none; }
+}
+
+/* Телефон (320, 375) */
+@media (max-width: 480px) {
+  .container { width: calc(100% - 28px); }
+
+  .header-inner { min-height: 66px; }
+  .brand { font-size: 18px; }
+  .brand-icon { font-size: 30px; }
+  nav a { font-size: 11px; }
+  nav a:not(.nav-active) { display: none; }
+
+  .hero { flex-direction: column; align-items: stretch; gap: 16px; padding-top: 38px; }
+  .hero-stat {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: auto;
+    margin-bottom: 0;
+    padding: 17px 0 0;
+    border-left: 0;
+    border-top: 1px solid #d5dbea;
+  }
+  .hero-stat strong { font-size: 40px; }
+  .hero-stat span { margin-top: 0; }
+
+  .filters { display: block; }
+  .filters fieldset { margin-bottom: 28px; }
+  .reset { width: 100%; }
+
+  .section-heading { flex-direction: column; align-items: stretch; gap: 14px; }
+  .section-heading h2 { font-size: 24px; }
+  .sort { justify-content: space-between; }
+
+  .tech { margin-top: 17px; }
+
+  .feature { margin-top: 66px; padding: 16px; }
+  .feature-inner { gap: 22px; }
+  .feature-copy { padding: 18px 8px 8px; }
+  .feature-panel { padding: 20px; }
+
+  footer { margin-top: 43px; }
+  .footer-inner span:last-child { display: none; }
+}
+
+/* Дополнительно. Container Queries и длинные тексты */
+
+.project-body {
+  overflow-wrap: anywhere;
+}
