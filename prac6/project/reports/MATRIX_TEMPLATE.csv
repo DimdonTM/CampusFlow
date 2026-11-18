@@ -1,0 +1,49 @@
+﻿Компонент;Вариант;Состояние;Тема;Ширина_px;Ожидаемое поведение;Факт_до;Факт_после;Статус_OK_FAIL;Доказательство
+button;primary;default;light;1440;Синий фон, белый текст, скруглённые углы;Тёмно-синий фон rgb(41,57,168) от legacy, квадратные углы;Фон rgb(54,89,217), скругление 12px, контраст 5.85;OK;screenshots/after/1440-light.png
+button;primary;focus-visible;dark;375;При Tab видна оранжевая рамка фокуса;Рамки нет, её убирал .ui-button:focus { outline: none };Рамка 3px цвета #ffc27c;OK;ручная проверка Tab, npm test 05
+button;danger;hover;light;768;При наведении фон темнеет, кнопка приподнимается;Фон всегда rgb(164,30,36) из-за !important, hover не менял цвет;Фон rgb(151,29,42), сдвиг вверх на 1px;OK;ручная проверка наведением
+button;secondary;disabled;dark;320;Кнопка полупрозрачная, не нажимается, Tab её пропускает;Все кнопки в стенде синие от legacy, у disabled была только прозрачность;Прозрачность 0.45, клик не работает, фокус не попадает (атрибут disabled добавлял в DevTools);OK;ручная проверка в DevTools, npm test 14
+field;email;untouched-invalid;light;1440;До ввода поле обычное, без красного;Поле красное сразу после загрузки, рамка rgb(180,35,54);Рамка серая rgb(213,219,234), aria-invalid нет;OK;screenshots/after/1440-light.png, npm test 09
+field;email;invalid-after-blur;dark;375;После ухода из пустого поля оно красное, подсказка тоже красная;Поле было красным сразу, цвет #b42336 не менялся с темой;aria-invalid=true, рамка rgb(255,157,171), фон тёмно-красный, подсказка красная;OK;ручная проверка, e2e field does not display error before user interacts
+card;featured;long-text;light;320;Длинный заголовок переносится, нет скролла вбок;Карточка 352px шире экрана, страница 380px;Заголовок переносится, ширина страницы 320px;OK;screenshots/after/320-light.png
+card;default;nested-alert;dark;375;Текст уведомления в карточке такой же, как у обычного уведомления;Текст 11.04px и серый, в тёмной теме тёмный на тёмном;Текст 13.28px, светлый, контраст 8.56;OK;screenshots/after/375-dark.png
+tag;danger;static;light;375;Светлый фон, красный текст, метка не похожа на кнопку;Красная заливка rgb(193,34,54), белый текст, отступ 16px;Фон rgb(255,240,242), текст rgb(187,40,58), контраст 5.46, отступ 10.4px;OK;screenshots/after/375-light.png
+alert;warning;dark-contrast;dark;375;Текст читается, контраст не меньше 4.5;Тёмный текст на тёмном фоне, контраст 1.87;Светлый текст, контраст 8.56;OK;screenshots/after/375-dark.png
+switch;enabled;keyboard-space;light;375;Tab доходит до переключателя, пробел переключает, видна рамка;Tab пропускал переключатель, input был скрыт через display: none;Tab доходит, пробел переключает, рамка видна;OK;ручная проверка Tab и пробел, npm test 06
+switch;disabled;tab-skip;dark;375;Tab пропускает заблокированный переключатель, остальные доступны;Tab пропускал вообще все переключатели;Tab пропускает только заблокированный, трек полупрозрачный 0.4;OK;ручная проверка Tab
+dialog;open;modal-focus;light;1024;Окно модальное, по центру, фокус внутри окна;Окно немодальное, открывалось внизу страницы, фон не затемнялся;Окно модальное (:modal), по центру, фокус на кнопке закрытия;OK;screenshots/after/dialog-open.png, e2e native dialog is truly modal
+dialog;closed;escape-focus-return;dark;375;Escape закрывает окно, фокус возвращается на кнопку;Escape не закрывал окно;Окно закрывается, фокус на кнопке Настройки UI;OK;ручная проверка Escape, e2e native dialog is truly modal
+button;ghost;hover;dark;1024;При наведении появляется светлый фон, текст читается;Фон синий от legacy, текст тёмный;Фон rgb(32,46,74), текст светлый;OK;ручная проверка наведением
+button;primary;default;dark;1440;В тёмной теме фон светло-синий, текст тёмный;Фон rgb(41,57,168) одинаковый в обеих темах;Фон rgb(144,166,255), контраст 7.6;OK;screenshots/after/1440-dark.png, e2e primary button uses theme tokens
+button;danger;default;dark;768;Розовый фон, тёмный текст;Фон rgb(164,30,36) в обеих темах;Фон rgb(255,157,171), контраст 9.23;OK;screenshots/after/768-dark.png
+button;lg;default;light;1920;Большая кнопка со скруглёнными углами;Квадратная и синяя от legacy;Высота 3.25rem, скругление 12px;OK;screenshots/after/1920-light.png
+button;sm;default;dark;768;Маленькая кнопка, цвет по теме;Синяя от legacy в обеих темах;Цвет по теме, скругление 12px;OK;screenshots/after/768-dark.png
+button;secondary;in-card;light;375;Кнопка в карточке выглядит так же, как вне карточки;Синий фон, тёмный текст, контраст 1.66;Белый фон, рамка, тёмный текст, контраст 15.54;OK;screenshots/after/375-light.png
+button;primary;outside-workbench;light;1440;Кнопка в шапке скруглённая, как кнопки в стенде;Квадратная из-за button { border-radius: 0 } в legacy;Скругление 12px;OK;screenshots/after/1440-light.png
+field;name;untouched;light;320;До ввода поле обычное, подсказка серая;Поле красное сразу после загрузки;Поле серое, подсказка серая;OK;screenshots/after/320-light.png
+field;email;valid-after-input;dark;1440;После ввода правильной почты красное пропадает;Работало, но до ввода поле уже было красным;aria-invalid=false, рамка обычная;OK;ручная проверка
+field;form;submit-empty;light;768;Пустая форма: оба поля красные и сообщение Исправьте поля формы;Поля были красными ещё до отправки;Оба поля aria-invalid=true, сообщение показано;OK;ручная проверка кнопкой Проверить форму
+field;name;focus-visible;dark;375;При фокусе видна оранжевая рамка;Рамки нет из-за input { outline: none } в legacy;Рамка 3px цвета #ffc27c;OK;ручная проверка Tab
+field;name;hint-link;light;1440;Подсказка связана с полем для скринридера;У поля не было aria-describedby;aria-describedby=name-hint;OK;DevTools вкладка Accessibility
+card;featured;long-text;dark;1920;Длинный заголовок переносится, рамка по теме;Работало;Заголовок переносится, рамка rgb(144,166,255);OK;screenshots/after/1920-dark.png
+card;default;nested-alert;light;320;Текст уведомления в карточке нормального размера;Текст 11.04px и серый;Текст 13.28px и тёмный;OK;screenshots/after/320-light.png
+card;default;default;dark;1024;Фон и текст карточки по теме;Работало;Работает;OK;screenshots/after/1024-dark.png
+tag;success;static;dark;768;Зелёный текст на тёмно-зелёном фоне читается;Работало, но отступ 16px;Контраст 7.46, отступ 10.4px;OK;screenshots/after/768-dark.png
+tag;warning;static;light;1920;Текст метки читается;Работало, но отступ 16px;Контраст 6.14, отступ 10.4px;OK;screenshots/after/1920-light.png
+tag;danger;in-card;dark;375;Метка в карточке такая же, как вне карточки;Красная заливка, белый текст, отступ 16px;Фон rgb(87,38,53), текст rgb(255,157,171), контраст 6.15;OK;screenshots/after/375-dark.png
+tag;any;hover;light;1440;При наведении ничего не меняется, курсор обычный (негативная проверка);Курсор-рука и затемнение;Курсор обычный, затемнения нет;OK;ручная проверка наведением
+alert;info;dark-contrast;dark;1440;Текст читается, контраст не меньше 4.5;Контраст 1.57;Контраст 10.14;OK;screenshots/after/1440-dark.png
+alert;danger;static;dark;320;Тёмно-красный фон, светлый текст;Сплошная красная заливка от .is-danger;Фон rgb(87,38,53), контраст 10.9;OK;screenshots/after/320-dark.png
+alert;any;dismiss-keyboard;light;768;Tab до крестика, Enter закрывает уведомление;Работало;Enter закрывает, осталось 3 уведомления из 4;OK;ручная проверка Tab и Enter
+alert;any;restore;light;1024;Кнопка Восстановить возвращает все уведомления;Работало;Снова 4 уведомления;OK;ручная проверка, e2e alert is dismissible
+switch;enabled;focus-visible;light;1440;При фокусе вокруг трека оранжевая рамка;Tab не доходил до переключателя;Рамка 3px вокруг трека;OK;ручная проверка Tab, npm test 05
+switch;enabled;keyboard-space;dark;1920;Пробел переключает, цвет трека по теме;Не работало;Выключен rgb(107,122,150), включён rgb(144,166,255);OK;ручная проверка пробелом
+switch;disabled;click;light;768;Клик не переключает (негативная проверка);Не переключался;Не переключается, трек полупрозрачный;OK;ручная проверка кликом
+dialog;open;backdrop;dark;1440;Фон под окном затемнён, страница не кликается;Затемнения не было, страница кликалась;Фон затемнён и размыт, страница под окном неактивна;OK;screenshots/after/dialog-open.png
+dialog;open;tab-inside;light;375;Tab ходит только внутри окна;Tab уходил на страницу под окном;После 7 нажатий Tab фокус всё ещё в окне;OK;ручная проверка Tab
+dialog;closed;escape-focus-return;light;1920;Escape закрывает окно, фокус возвращается на кнопку;Escape не закрывал окно;Окно закрывается, фокус на кнопке Настройки UI;OK;ручная проверка Escape
+page;layout;no-scroll;light;320;Нет скролла вбок;Страница 380px при экране 320px;Страница 320px;OK;screenshots/after/320-light.png, e2e no horizontal viewport overflow
+page;layout;no-scroll;dark;1920;Нет скролла вбок;Скролла не было;Скролла нет;OK;screenshots/after/1920-dark.png
+legacy;widget;isolation;light;1440;Виджет сохраняет свой вид и не меняет библиотеку;Правила виджета меняли кнопки, поля и карточки библиотеки;Шрифт Georgia, квадратная кнопка, библиотека не затронута;OK;screenshots/after/1440-light.png, npm test 18
+page;reduced-motion;hover;light;1440;При включённом reduce кнопки не двигаются при наведении;Двигались, правила не было;Не двигаются;OK;ручная проверка DevTools Rendering, npm test 12
+page;theme-toggle;aria-pressed;light;1440;Кнопка темы сообщает своё состояние;Работало;aria-pressed меняется с false на true;OK;ручная проверка

@@ -1,0 +1,4 @@
+:where(*, *::before, *::after) { box-sizing: border-box; }
+:where(button, input, textarea) { font: inherit; }
+:where(h1, h2, h3, p) { margin-block-start: 0; }
+:where([hidden]) { display: none; }
