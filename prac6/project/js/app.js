@@ -2,12 +2,23 @@ const root = document.documentElement;
 const themeToggle = document.querySelector('#theme-toggle');
 const dialog = document.querySelector('#settings-dialog');
 
+function applyTheme(theme) {
+  root.dataset.theme = theme;
+  themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+  themeToggle.textContent = theme === 'dark' ? '☀️ Светлая тема' : '🌙 Сменить тему';
+}
+
 function toggleTheme() {
   const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  root.dataset.theme = next;
-  themeToggle.setAttribute('aria-pressed', String(next === 'dark'));
-  themeToggle.textContent = next === 'dark' ? '☀️ Светлая тема' : '🌙 Сменить тему';
+  applyTheme(next);
+  try { localStorage.setItem('atlas-theme', next); } catch {}
 }
+
+try {
+  const saved = localStorage.getItem('atlas-theme');
+  if (saved === 'dark' || saved === 'light') applyTheme(saved);
+} catch {}
+
 themeToggle.addEventListener('click', toggleTheme);
 
 // INCIDENT D08: the window is opened, but not in a modal state.
