@@ -1,10 +1,10 @@
 /* INTERACTION STATES */
-.ui-button:hover { transform: translateY(-1px); }
-.ui-button--primary:hover { background: var(--color-accent-hover); }
-.ui-button--secondary:hover, .ui-button--ghost:hover { background: var(--color-border); }
-.ui-button--danger:hover { background: var(--color-danger-hover); }
+.ui-button:hover:not(:disabled) { transform: translateY(-1px); }
+.ui-button--primary:hover:not(:disabled) { background: var(--color-accent-hover); }
+.ui-button--secondary:hover:not(:disabled), .ui-button--ghost:hover:not(:disabled) { background: var(--color-border); }
+.ui-button--danger:hover:not(:disabled) { background: var(--color-danger-hover); }
 .ui-button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
-.ui-button:active { transform: translateY(0); }
+.ui-button:active:not(:disabled) { transform: translateY(0); filter: brightness(.9); }
 .ui-button:disabled { opacity: .5; cursor: not-allowed; transform: none; }
 .ui-field:has(input[aria-invalid="true"]) input { border-color: var(--color-danger); background: var(--color-danger-bg); }
 .ui-field:has(input[aria-invalid="true"]) .ui-field__hint { color: var(--color-danger); }
