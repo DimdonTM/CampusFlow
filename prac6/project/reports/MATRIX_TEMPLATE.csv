@@ -13,7 +13,7 @@ switch;enabled;keyboard-space;light;375;Tab доходит до переключ
 switch;disabled;tab-skip;dark;375;Tab пропускает заблокированный переключатель, остальные доступны;Tab пропускал вообще все переключатели;Tab пропускает только заблокированный, трек полупрозрачный 0.4;OK;ручная проверка Tab
 dialog;open;modal-focus;light;1024;Окно модальное, по центру, фокус внутри окна;Окно немодальное, открывалось внизу страницы, фон не затемнялся;Окно модальное (:modal), по центру, фокус на кнопке закрытия;OK;screenshots/after/dialog-open.png, e2e native dialog is truly modal
 dialog;closed;escape-focus-return;dark;375;Escape закрывает окно, фокус возвращается на кнопку;Escape не закрывал окно;Окно закрывается, фокус на кнопке Настройки UI;OK;ручная проверка Escape, e2e native dialog is truly modal
-button;ghost;hover;dark;1024;При наведении появляется светлый фон, текст читается;Фон синий от legacy, текст тёмный;Фон rgb(32,46,74), текст светлый;OK;ручная проверка наведением
+button;ghost;hover;dark;1024;При наведении появляется светлый фон, текст читается;Фон синий от legacy, текст тёмный;Фон rgb(61,75,102), заметно отличается от панели, текст светлый;OK;ручная проверка наведением
 button;primary;default;dark;1440;В тёмной теме фон светло-синий, текст тёмный;Фон rgb(41,57,168) одинаковый в обеих темах;Фон rgb(144,166,255), контраст 7.6;OK;screenshots/after/1440-dark.png, e2e primary button uses theme tokens
 button;danger;default;dark;768;Розовый фон, тёмный текст;Фон rgb(164,30,36) в обеих темах;Фон rgb(255,157,171), контраст 9.23;OK;screenshots/after/768-dark.png
 button;lg;default;light;1920;Большая кнопка со скруглёнными углами;Квадратная и синяя от legacy;Высота 3.25rem, скругление 12px;OK;screenshots/after/1920-light.png
@@ -48,3 +48,4 @@ legacy;widget;isolation;light;1440;Виджет сохраняет свой ви
 page;reduced-motion;hover;light;1440;При включённом reduce кнопки не двигаются при наведении;Двигались, правила не было;Не двигаются;OK;ручная проверка DevTools Rendering, npm test 12
 page;theme-toggle;aria-pressed;light;1440;Кнопка темы сообщает своё состояние;Работало;aria-pressed меняется с false на true;OK;ручная проверка
 field;textarea;resize;light;375;Поле тянется только в высоту, шире карточки не становится;Тянулось в ширину за экран, появлялся скролл вбок;Тянется только в высоту;OK;ручная проверка
+page;theme-toggle;persist;dark;1440;Тема сохраняется после перезагрузки;После F5 тема сбрасывалась на светлую;Тёмная тема остаётся после F5;OK;ручная проверка
