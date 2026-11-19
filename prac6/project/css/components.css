@@ -11,6 +11,7 @@
 .ui-field label { font-weight: 650; font-size: .88rem; }
 .ui-field input, .ui-field textarea { width: 100%; padding: .7rem .8rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-ink); }
 .ui-field__hint { font-size: .75rem; color: var(--color-muted); }
+.ui-field textarea { resize: vertical; max-width: 100%; }
 .ui-field__actions { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
 .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .ui-field--full, .ui-field__actions { grid-column: 1 / -1; }
