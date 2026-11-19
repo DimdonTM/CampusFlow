@@ -1,7 +1,7 @@
 /* INTERACTION STATES */
 .ui-button:hover { transform: translateY(-1px); }
 .ui-button--primary:hover { background: var(--color-accent-hover); }
-.ui-button--secondary:hover, .ui-button--ghost:hover { background: var(--color-surface-alt); }
+.ui-button--secondary:hover, .ui-button--ghost:hover { background: var(--color-border); }
 .ui-button--danger:hover { background: var(--color-danger-hover); }
 .ui-button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
 .ui-button:active { transform: translateY(0); }
